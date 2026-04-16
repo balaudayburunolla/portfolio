@@ -81,3 +81,8 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         document.body.style.overflow = 'auto';
     });
 });
+// Your current toggleMenu function will still work:
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+    document.querySelector('.menu-trigger').classList.toggle('active-icon');
+}
