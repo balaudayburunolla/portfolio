@@ -1165,7 +1165,7 @@ nav {
 
 /* 2. THE ACTIVE STATE (When Menu is Open) */
 .nav-overlay.active {
-    max-height: 100vh; /* Expands to show all links */
+    max-height: 70vh; /* Expands to show all links */
     border-bottom: 5px solid var(--gta-gold);
 }
 
@@ -1189,7 +1189,7 @@ nav {
 
 /* 4. HOVER EFFECT (GTA Mission Highlight) */
 .nav-links a:hover {
-    background: #eee;
+    background: #ffffff;
     padding-left: 60px; /* Slight push to the right on hover */
     border-left: 10px solid var(--gta-gold);
     color: var(--gta-black);
