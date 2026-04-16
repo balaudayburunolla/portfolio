@@ -50,3 +50,34 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         document.querySelector('.menu-trigger').classList.remove('active-icon');
     });
 });
+// Function to toggle the vertical navigation menu
+function toggleMenu() {
+    const navOverlay = document.getElementById('navLinks');
+    const menuTrigger = document.querySelector('.menu-trigger');
+    const body = document.body;
+
+    // 1. Toggle the 'active' class on the overlay (Slides it down/in)
+    navOverlay.classList.toggle('active');
+
+    // 2. Toggle the 'active-icon' class on the burger (Animates to an 'X')
+    menuTrigger.classList.toggle('active-icon');
+
+    // 3. Lock/Unlock scrolling to prevent background movement when menu is open
+    if (navOverlay.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = 'auto';
+    }
+}
+
+// 4. Auto-close menu when a link is clicked (Essential for single-page scrolling)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navOverlay = document.getElementById('navLinks');
+        const menuTrigger = document.querySelector('.menu-trigger');
+        
+        navOverlay.classList.remove('active');
+        menuTrigger.classList.remove('active-icon');
+        document.body.style.overflow = 'auto';
+    });
+});
