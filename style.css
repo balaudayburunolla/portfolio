@@ -1081,3 +1081,66 @@ nav {
         font-size: 2rem;
     }
 }
+/* 1. UPDATE THE HEADER CONTAINER */
+.gta-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    /* Increase height to accommodate vertical stacking */
+    height: auto; 
+    min-height: 120px; 
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 4px solid var(--gta-gold);
+    
+    /* Change flex direction to vertical */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    
+    padding: 15px 20px;
+    gap: 15px; /* Adds space between text and burger icon */
+    z-index: 2000;
+}
+
+/* 2. ADJUST THE TITLE FOR VERTICAL LAYOUT */
+.header-title {
+    text-align: center;
+    font-size: 1.1rem; /* Slightly smaller to fit better vertically */
+    line-height: 1.4;
+    max-width: 90%;
+    color: #000;
+    font-weight: bold;
+    /* Allow text to wrap if it's too long */
+    word-break: break-word; 
+}
+
+/* 3. MENU TRIGGER TWEAKS */
+.menu-trigger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px;
+}
+
+/* 4. ADJUST CONTENT PADDING */
+/* Since the header is now taller, we must push the main content down further */
+.content-section {
+    padding-top: 150px; 
+}
+
+/* 5. MOBILE OVERRIDE */
+@media screen and (max-width: 768px) {
+    .gta-header {
+        min-height: 100px;
+        gap: 10px;
+    }
+    .header-title {
+        font-size: 0.9rem;
+    }
+    .content-section {
+        padding-top: 130px;
+    }
+}
