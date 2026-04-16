@@ -987,3 +987,97 @@ nav {
     color: var(--gta-black);
     border-color: var(--gta-black);
 }
+/* --- MOBILE & TABLET ADAPTATIONS --- */
+
+@media screen and (max-width: 768px) {
+    /* 1. Adjust Header */
+    .gta-header {
+        height: 60px;
+        padding: 0 20px;
+    }
+
+    .header-title {
+        font-size: 1rem; /* Shrink the Telugu text/Title for small screens */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 70%;
+    }
+
+    /* 2. Scale Glitch Text */
+    .tech-glitch {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    /* 3. Stack the Grid to Single Column */
+    .project-grid, .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* 4. Fix Profile Circle for Mobile */
+    .profile-container {
+        position: relative;
+        top: 0;
+        right: 0;
+        transform: none;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-circle {
+        width: 220px;
+        height: 220px;
+        border-width: 5px;
+    }
+
+    /* 5. Content Spacing */
+    .content-section {
+        padding: 80px 15px 40px 15px; /* Extra top padding for fixed header */
+    }
+
+    /* 6. Navigation Overlay Text Scale */
+    .nav-links a {
+        font-size: 1.8rem;
+        margin: 15px 0;
+    }
+
+    /* 7. Mission Banner Adjustments */
+    .mission-passed-banner {
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .banner-text {
+        font-size: 1.2rem !important;
+    }
+
+    /* 8. Hide non-essential sidebar stats on very small screens */
+    .stat-sidebar {
+        display: none;
+    }
+}
+
+/* --- EXTRA SMALL DEVICES (PHONES) --- */
+@media screen and (max-width: 480px) {
+    .tech-glitch {
+        font-size: 2rem;
+    }
+
+    .contact-btn {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .social-links a i {
+        font-size: 2rem;
+    }
+}
