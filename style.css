@@ -1239,4 +1239,71 @@ nav {
         padding-left: 35px; /* Reduced shift for small screens */
     }
 }
+/* 1. THE DROPDOWN CONTAINER */
+.nav-overlay {
+    position: fixed;
+    /* Adjust this value to match your header's total height */
+    top: 120px; 
+    left: 50%;
+    transform: translateX(-50%); /* Centers the menu */
+    
+    width: 90%; 
+    max-width: 400px; /* Keeps it from getting too wide on desktop */
+    
+    /* Animation Logic */
+    max-height: 0;
+    overflow: hidden; /* Standard state hides content */
+    
+    background: #ffffff;
+    border: 2px solid var(--gta-gold);
+    border-top: none; /* Blends it into the header */
+    z-index: 1500;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* 2. THE ACTIVE STATE (Triggered by JS) */
+.nav-overlay.active {
+    /* Limit height and enable internal scrolling */
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+
+/* 3. STYLING THE LINKS & HOVER COLORS */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.nav-links a {
+    font-family: var(--font-nav);
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 15px 25px;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+/* 4. THE HOVER CHANGE */
+.nav-links a:hover {
+    background-color: var(--gta-black); /* Changes background to black */
+    color: var(--gta-gold);             /* Changes text to gold */
+    padding-left: 35px;                 /* GTA shift effect */
+}
+
+/* 5. CUSTOM SCROLLBAR (GTA Gold Style) */
+.nav-overlay.active::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nav-overlay.active::-webkit-scrollbar-thumb {
+    background: var(--gta-gold);
+}
+
+.nav-overlay.active::-webkit-scrollbar-track {
+    background: #eee;
+}
 
