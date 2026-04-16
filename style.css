@@ -1,3 +1,4 @@
+
 /* 1. FONTS & VARIABLES */
 @import url('css2.css');
 
@@ -1144,3 +1145,59 @@ nav {
         padding-top: 130px;
     }
 }
+/* 1. THE DROPDOWN CONTAINER */
+.nav-overlay {
+    position: fixed;
+    /* Position it exactly where your header ends */
+    top: 120px; 
+    left: 0;
+    width: 100%;
+    /* Start with 0 height and hidden */
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 1500;
+    
+    /* Smooth transition for the "Slide Down" effect */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-bottom 0.3s;
+    border-bottom: 0px solid var(--gta-gold);
+}
+
+/* 2. THE ACTIVE STATE (When Menu is Open) */
+.nav-overlay.active {
+    max-height: 100vh; /* Expands to show all links */
+    border-bottom: 5px solid var(--gta-gold);
+}
+
+/* 3. VERTICAL LINK FLOW */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.nav-links a {
+    font-family: var(--font-nav);
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 15px 40px;
+    border-left: 0px solid var(--gta-gold);
+    transition: all 0.2s ease-in-out;
+}
+
+/* 4. HOVER EFFECT (GTA Mission Highlight) */
+.nav-links a:hover {
+    background: #eee;
+    padding-left: 60px; /* Slight push to the right on hover */
+    border-left: 10px solid var(--gta-gold);
+    color: var(--gta-black);
+}
+
+/* 5. ACTIVE PAGE INDICATOR */
+.nav-links a.active {
+    color: var(--gta-gold);
+    background: #f9f9f9;
+}
+
