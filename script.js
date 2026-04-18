@@ -15,6 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
             flash.style.opacity = '0';
         }, 100);
     }, 300);
+const audio = document.getElementById('bgm');
+const btn = document.getElementById('musicToggle');
+const waves = document.getElementById('speaker-waves');
+const muteLine1 = document.getElementById('mute-line');
+const muteLine2 = document.getElementById('mute-line-2');
+
+// Default state: Muted/Paused
+let isPlaying = false;
+
+btn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        btn.classList.add('playing');
+        waves.style.display = 'block';
+        muteLine1.style.display = 'none';
+        muteLine2.style.display = 'none';
+    } else {
+        audio.pause();
+        btn.classList.remove('playing');
+        waves.style.display = 'none';
+        muteLine1.style.display = 'block';
+        muteLine2.style.display = 'block';
+    }
+});
 
     /* 2. STAT BAR ANIMATIONS */
     const fills = document.querySelectorAll('.fill');
@@ -133,27 +157,3 @@ function toggleMenu() {
     
     console.log("Menu status: " + nav.classList.contains('active'));
 }
-const audio = document.getElementById('bgm');
-const btn = document.getElementById('musicToggle');
-const waves = document.getElementById('speaker-waves');
-const muteLine1 = document.getElementById('mute-line');
-const muteLine2 = document.getElementById('mute-line-2');
-
-// Default state: Muted/Paused
-let isPlaying = false;
-
-btn.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play();
-        btn.classList.add('playing');
-        waves.style.display = 'block';
-        muteLine1.style.display = 'none';
-        muteLine2.style.display = 'none';
-    } else {
-        audio.pause();
-        btn.classList.remove('playing');
-        waves.style.display = 'none';
-        muteLine1.style.display = 'block';
-        muteLine2.style.display = 'block';
-    }
-});
